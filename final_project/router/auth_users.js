@@ -6,7 +6,6 @@ const regd_users = express.Router();
 let users = [];
 
 const isValid = (username)=>{ //returns boolean
-//write code to check is the username is valid
     let validusers = users.filter((user)=>{
         return (user.username === username)
     });
@@ -18,7 +17,6 @@ const isValid = (username)=>{ //returns boolean
 }
 
 const authenticatedUser = (username,password)=>{ //returns boolean
-//write code to check if username and password match the one we have in records.
     let validusers = users.filter((user)=>{
         return (user.username === username && user.password === password)
     });
@@ -56,7 +54,6 @@ regd_users.post("/login", (req,res) => {
 
 // Add a book review
 regd_users.put("/auth/review/:isbn", (req, res) => {
-  //Write your code here
   let isbn = req.params.isbn;
   let book = books[isbn];
   let review = book["reviews"];
@@ -79,7 +76,6 @@ regd_users.put("/auth/review/:isbn", (req, res) => {
 
 // Add a book review
 regd_users.get("/auth/review/:isbn", (req, res) => {
-    //Write your code here
     let isbn = req.params.isbn;
     let review = books[isbn]["reviews"];
     return res.status(208).json({message: "The review for the book with ISBN "+isbn+" has been added/updated."});
